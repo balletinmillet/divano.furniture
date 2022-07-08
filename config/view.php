@@ -17,6 +17,11 @@ return [
         resource_path('views'),
     ],
 
+    'template' => [
+        'path' => '/templates/' . config('app.template') . '/',
+        'root' => 'templates.' . config('app.template') . '.',
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Compiled View Path
