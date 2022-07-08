@@ -19,7 +19,7 @@ return [
 
     'template' => [
         'path' => '/templates/' . config('app.template') . '/',
-        'root' => 'templates.' . config('app.template') . '.',
+        'route' => 'templates.' . config('app.template') . '.',
     ],
 
     /*
