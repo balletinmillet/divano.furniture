@@ -3,7 +3,7 @@
         <div class="figure-block">
             <div class="image">
                 <a href="products-grid.html">
-                    <img src="assets/images/item-1.jpg" alt="" width="360" />
+                    <img src="{{Storage::disk('public')->url($brand->image ?? 'default/brand.big.png')}}" alt="" width="360" />
                 </a>
             </div>
             <div class="text">

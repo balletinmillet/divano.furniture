@@ -2,7 +2,7 @@
     <article data-3d>
         <a href="products-grid.html">
             <div class="image">
-                <img src="assets/images/product-1.jpg" alt="" />
+                <img src="{{Storage::disk('public')->url($category->image ?? 'default/category.big.png')}}" alt="" />
             </div>
             <div class="entry entry-block">
                 <div class="label">Современный дизайн</div>

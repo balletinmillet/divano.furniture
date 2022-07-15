@@ -18,7 +18,7 @@
         <div class="figure-grid">
             <div class="image">
                 <a href="product.html">
-                    <img src="assets/images/product-10.jpg" alt="" />
+                    <img src="{{Storage::disk('public')->url($product->image ?? 'default/product.big.png')}}" alt="" />
                 </a>
             </div>
             <div class="text">
