@@ -40,7 +40,6 @@
         </header>
 
         <!--Content-->
-
         <div class="container">
             <div class="row">
                 @foreach($categories as $category)

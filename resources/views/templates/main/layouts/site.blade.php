@@ -19,14 +19,14 @@
     <title>Divano - Furniture HTML Template</title>
 
     <!--CSS bundle -->
-    <link rel="stylesheet" media="all" href="css/bootstrap.css" />
-    <link rel="stylesheet" media="all" href="css/animate.css" />
-    <link rel="stylesheet" media="all" href="css/font-awesome.css" />
-    <link rel="stylesheet" media="all" href="css/ion-range-slider.css" />
-    <link rel="stylesheet" media="all" href="css/linear-icons.css" />
-    <link rel="stylesheet" media="all" href="css/magnific-popup.css" />
-    <link rel="stylesheet" media="all" href="css/owl.carousel.css" />
-    <link rel="stylesheet" media="all" href="css/theme.css" />
+    <link rel="stylesheet" media="all" href="/css/bootstrap.css" />
+    <link rel="stylesheet" media="all" href="/css/animate.css" />
+    <link rel="stylesheet" media="all" href="/css/font-awesome.css" />
+    <link rel="stylesheet" media="all" href="/css/ion-range-slider.css" />
+    <link rel="stylesheet" media="all" href="/css/linear-icons.css" />
+    <link rel="stylesheet" media="all" href="/css/magnific-popup.css" />
+    <link rel="stylesheet" media="all" href="/css/owl.carousel.css" />
+    <link rel="stylesheet" media="all" href="/css/theme.css" />
 
     <!--Google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600" rel="stylesheet">
@@ -34,8 +34,8 @@
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-    <script src="js/html5shiv.min.js"></script>
-    <script src="js/respond.min.js"></script>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
     <![endif]-->
 
 </head>
@@ -57,7 +57,7 @@
         <div class="container">
 
             <a href="http://www.elathemes.com/themes/divano/index.html" class="logo">
-                <img src="assets/images/divano-logo.svg" alt="" width="130" height="55"></a>
+                <img src="/assets/images/divano-logo.svg" alt="" width="130" height="55"></a>
 
             <!-- ==========  Top navigation ========== -->
 
@@ -65,7 +65,7 @@
                 <ul>
                     <!--add active class for current page-->
                     <li class="left-side"><a href="http://www.elathemes.com/themes/divano/index.html" class="logo-icon">
-                            <img src="assets/images/divano-logo.svg" alt="Alternate Text" width="150" height="34"></a></li>
+                            <img src="/assets/images/divano-logo.svg" alt="Alternate Text" width="150" height="34"></a></li>
                     <li class="left-side"><a href="http://www.elathemes.com/themes/divano/email-template.html">Email template</a></li>
                     <li class="left-side"><a href="http://www.elathemes.com/themes/divano/shortcodes.html">Shortcodes</a></li>
                     <li><a href="javascript:void(0);" class="open-login"><i class="icon icon-user"></i></a></li>
@@ -580,7 +580,7 @@
                     <!--footer showroom-->
                     <div class="footer-showroom">
                         <div class="text-center">
-                            <a href="http://www.elathemes.com/"><img src="assets/images/divano-logo.svg" alt="" width="130" height="55"></a>
+                            <a href="http://www.elathemes.com/"><img src="/assets/images/divano-logo.svg" alt="" width="130" height="55"></a>
                         </div>
                     </div>
 
@@ -655,16 +655,16 @@
 
 </div> <!--/wrapper-->
 <!--Scripts -->
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.js"></script>
-<script src="js/include.js"></script>
-<script src="js/ion.rangeSlider.js"></script>
-<script src="js/magnific-popup.js"></script>
-<script src="js/owl.carousel.js"></script>
-<script src="js/tilt.jquery.js"></script>
-<script src="js/jquery.easypiechart.js"></script>
-<script src="js/bigtext.js"></script>
-<script src="js/main.js"></script>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.js"></script>
+<script src="/js/include.js"></script>
+<script src="/js/ion.rangeSlider.js"></script>
+<script src="/js/magnific-popup.js"></script>
+<script src="/js/owl.carousel.js"></script>
+<script src="/js/tilt.jquery.js"></script>
+<script src="/js/jquery.easypiechart.js"></script>
+<script src="/js/bigtext.js"></script>
+<script src="/js/main.js"></script>
 </body>
 
 </html>
