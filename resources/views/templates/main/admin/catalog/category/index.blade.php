@@ -3,6 +3,7 @@
 @section('content')
     <div class="right_col" role="main">
         <div class="">
+
             <div class="page-title">
                 <div class="title_left">
                     <h3>Projects <small>Listing design</small></h3>
@@ -66,7 +67,7 @@
                                                 <a>{{$item->code}}</a>
                                             </td>
                                             <td>
-                                                <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> Открыть </a>
+                                                <a href="{{ route('admin.catalog.category.show', $item) }}" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> Открыть </a>
                                                 <a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Редактировать </a>
                                                 <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Удалить </a>
                                             </td>
@@ -75,7 +76,9 @@
                                 </tbody>
                             </table>
                             <!-- end project list -->
-
+                        </div>
+                        <div class="x_content">
+                            <a href="{{ route('admin.catalog.category.create') }}"  class="btn btn-primary btn-lg">Создать категорию</a>
                         </div>
                     </div>
                 </div>

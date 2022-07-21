@@ -29,6 +29,8 @@
 
     <!-- Custom Theme Style -->
     <link href="/admin/css/custom.min.css" rel="stylesheet">
+    <!-- Custom Main Style -->
+    <link href="/admin/css/main.css" rel="stylesheet">
 </head>
 
 <body class="nav-md">
@@ -79,7 +81,7 @@
                             </li>
                             <li><a><i class="fa fa-product-hunt"></i> Каталог <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="tables.html">Категории</a></li>
+                                    <li><a href="{{ route('admin.catalog.category.index') }}">Категории</a></li>
                                     <li><a href="tables.html">Бренды</a></li>
                                     <li><a href="tables.html">Товары</a></li>
                                     <li><a href="tables.html">Свойства товаров</a></li>
