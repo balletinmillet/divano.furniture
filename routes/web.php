@@ -6,7 +6,6 @@ use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\Admin\IndexController as AdminIndexController;
 use App\Http\Controllers\Admin\CategoryController;
 
-
 Route::get('/', IndexController::class)->name('index');
 
 /**  Каталог товаров: категория, бренд и товар **/

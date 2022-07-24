@@ -253,7 +253,11 @@
         <!-- /top navigation -->
 
         <!-- page content -->
-        @yield('content')
+        <div class="right_col" role="main">
+            @include(config('view.template.route') . 'admin.alerts.success')
+            @include(config('view.template.route') . 'admin.alerts.errors')
+            @yield('content')
+        </div>
         <!-- /page content -->
 
         <!-- footer content -->
