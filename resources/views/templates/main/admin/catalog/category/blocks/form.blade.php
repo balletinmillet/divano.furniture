@@ -30,7 +30,7 @@
     </div>
 </div>
 <div class="item form-group">
-    <label class="col-form-label col-md-3 col-sm-3 label-align" for="description">{{__('admin/common.form.categoryDescription')}}</label>
+    <label class="col-form-label col-md-3 col-sm-3 label-align" for="description">{{__('admin/common.form.description')}}</label>
     <div class="col-md-6 col-sm-6 ">
         <textarea class="form-control" name="description" rows="3">{{isset($category) ? $category->description : ''}}</textarea>
     </div>

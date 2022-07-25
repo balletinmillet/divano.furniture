@@ -57,7 +57,7 @@ class CategoryController extends Controller
         $fields['image'] = $this->imageHandler->upload($request->image);
         $category = Category::create($fields);
         return redirect()
-            ->route('admin.catalog.category.show', ['category' => $category])
+            ->route('admin.catalog.category.show', compact('category'))
             ->with('success', __('app/controllers.admin.category.successCreated'));
     }
 
