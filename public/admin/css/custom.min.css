@@ -11,3 +11,12 @@
 #slash{
 	display: none;
 }
+
+.properties-table{
+    border-collapse: unset;
+}
+
+.properties-table tr:first-child th,
+.properties-table tr:first-child td {
+    border-top: none;
+}

@@ -82,8 +82,8 @@
                             <li><a><i class="fa fa-product-hunt"></i> Каталог <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li><a href="{{ route('admin.catalog.category.index') }}">Категории</a></li>
-                                    <li><a href="tables.html">Бренды</a></li>
-                                    <li><a href="tables.html">Товары</a></li>
+                                    <li><a href="{{ route('admin.catalog.brand.index') }}">Бренды</a></li>
+                                    <li><a href="{{ route('admin.catalog.product.index') }}">Товары</a></li>
                                     <li><a href="tables.html">Свойства товаров</a></li>
 
                                 </ul>

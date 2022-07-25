@@ -5,6 +5,8 @@ use App\Http\Controllers\IndexController;
 use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\Admin\IndexController as AdminIndexController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\BrandController;
+use App\Http\Controllers\Admin\ProductController;
 
 Route::get('/', IndexController::class)->name('index');
 
@@ -30,6 +32,8 @@ Route::group([
     Route::group(['as' => 'catalog.', 'prefix' => 'catalog'], function () {
 
         Route::resource('category', CategoryController::class);
+        Route::resource('brand', BrandController::class);
+        Route::resource('product', ProductController::class);
     });
 });
 

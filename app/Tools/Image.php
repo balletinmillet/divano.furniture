@@ -39,13 +39,13 @@ class Image
         }
 
         $imageExtension = $image->extension();
-        $imageStorePath = $image->store($this->imageStorePaths['source'], 'public');
+        $imageStorePath = $image->store($this->storePaths['source'], 'public');
         $imageFullPath = Storage::disk('public')->path($imageStorePath);
 
-        $this->resize($imageFullPath, $this->imageStorePaths['image'] . "/",
+        $this->resize($imageFullPath, $this->storePaths['image'] . "/",
             $this->storeSizes['image']['width'], $this->storeSizes['image']['height'], $imageExtension);
 
-        $this->resize($imageFullPath, $this->imageStorePaths['thumb'] . "/",
+        $this->resize($imageFullPath, $this->storePaths['thumb'] . "/",
             $this->storeSizes['thumb']['width'], $this->storeSizes['thumb']['height'], $imageExtension);
 
         return basename($imageFullPath);
