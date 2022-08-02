@@ -1,5 +1,5 @@
 @extends(config('view.template.route') . "layouts.admin")
-@section('title', "Товары каталога")
+@section('title', "Варианты свойства " . $property->name)
 @section('content')
 <div class="">
     <div class="page-title">
@@ -24,52 +24,46 @@
         <div class="col-md-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>{{__('admin/catalog.product.index.title')}}</h2>
+                    <h2>{{__('admin/catalog.propertyOptions.index.title')}}
+                        <a href="{{ route('admin.catalog.properties.show', $property) }}" target="_blank">"{{$property->name}}"</a>
+                    </h2>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
 
-                    <p>{{__('admin/catalog.product.index.description')}}</p>
+                    <p>{{__('admin/catalog.propertyOptions.index.description')}}</p>
 
                     <!-- start project list -->
                     <table class="table table-striped projects">
                         <thead>
                         <tr>
-                            <th style="width: 5%">{{__('admin/catalog.product.index.table.id')}}</th>
-                            <th style="width: 17%">{{__('admin/catalog.product.index.table.name')}}</th>
-                            <th style="width: 17%">{{__('admin/catalog.product.index.table.code')}}</th>
-                            <th style="width: 17%">{{__('admin/catalog.product.index.table.category')}}</th>
-                            <th style="width: 40%">{{__('admin/catalog.product.index.table.actions')}}</th>
+                            <th style="width: 5%">{{__('admin/catalog.propertyOptions.index.table.id')}}</th>
+                            <th style="width: 17%">{{__('admin/catalog.propertyOptions.index.table.name')}}</th>
+                            <th style="width: 17%">{{__('admin/catalog.propertyOptions.index.table.code')}}</th>
+                            <th style="width: 40%">{{__('admin/catalog.propertyOptions.index.table.actions')}}</th>
                         </tr>
                         </thead>
                         <tbody>
-                            @foreach($products as $product)
+                            @foreach($propertyOptions as $propertyOption)
                                 <tr>
-                                    <td>{{$product->id}}</td>
+                                    <td>{{$propertyOption->id}}</td>
                                     <td>
-                                        <a>{{$product->name}}</a>
+                                        <a>{{$propertyOption->name}}</a>
                                     </td>
                                     <td>
-                                        <a>{{$product->code}}</a>
+                                        <a>{{$propertyOption->code}}</a>
                                     </td>
                                     <td>
-                                        <a href="{{route('admin.catalog.category.show', $product->category)}}">{{$product->category->name}}</a>
-                                    </td>
-                                    <td>
-                                        <a href="{{ route('admin.catalog.product.show', $product) }}" class="btn btn-primary btn-xs">
+                                        <a href="{{ route('admin.catalog.property-options.show', [$property, $propertyOption]) }}" class="btn btn-primary btn-xs">
                                             <i class="fa fa-folder"></i>
                                             {{__('admin/common.button.open')}}
                                         </a>
-                                        <a href="{{ route('admin.catalog.sku.index', $product) }}" class="btn btn btn-success btn-xs">
-                                            <i class="fa fa-share-alt-square"></i>
-                                            {{__('admin/common.button.sku')}}
-                                        </a>
-                                        <a href="{{ route('admin.catalog.product.edit', $product) }}" class="btn btn-info btn-xs">
+                                        <a href="{{ route('admin.catalog.property-options.edit', [$property, $propertyOption]) }}" class="btn btn-info btn-xs">
                                             <i class="fa fa-pencil"></i>
                                             {{__('admin/common.button.edit')}}
                                         </a>
-                                        <form action="{{ route('admin.catalog.product.destroy', $product) }}" style="display: inline"
-                                              method="post" onsubmit="return confirm('{{__('admin/common.question.productDelete')}}')">
+                                        <form action="{{ route('admin.catalog.property-options.destroy', [$property , $propertyOption]) }}" style="display: inline"
+                                              method="post" onsubmit="return confirm('{{__('admin/common.question.propertyOptionDelete')}}')">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger btn-xs">
@@ -85,8 +79,8 @@
                     <!-- end project list -->
                 </div>
                 <div class="x_content">
-                    <a href="{{ route('admin.catalog.product.create') }}"  class="btn btn-primary btn-lg">
-                        {{__('admin/catalog.product.index.table.button.create')}}
+                    <a href="{{ route('admin.catalog.property-options.create', $property) }}"  class="btn btn-primary btn-lg">
+                        {{__('admin/catalog.propertyOptions.index.table.button.create')}}
                     </a>
                 </div>
             </div>

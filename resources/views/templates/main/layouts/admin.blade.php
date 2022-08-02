@@ -84,7 +84,7 @@
                                     <li><a href="{{ route('admin.catalog.category.index') }}">Категории</a></li>
                                     <li><a href="{{ route('admin.catalog.brand.index') }}">Бренды</a></li>
                                     <li><a href="{{ route('admin.catalog.product.index') }}">Товары</a></li>
-                                    <li><a href="tables.html">Свойства товаров</a></li>
+                                    <li><a href="{{ route('admin.catalog.properties.index') }}">Свойства товаров</a></li>
 
                                 </ul>
                             </li>

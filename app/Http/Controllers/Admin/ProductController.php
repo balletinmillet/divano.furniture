@@ -7,6 +7,7 @@ use App\Http\Requests\ProductCatalogRequest;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Property;
 use App\Tools\Image;
 use App\Tools\Template;
 use Illuminate\Contracts\Foundation\Application;
@@ -45,7 +46,8 @@ class ProductController extends Controller
     {
         $categories = Category::all();
         $brands = Brand::all();
-        return view(Template::route() .'admin.catalog.product.create', compact('categories', 'brands'));
+        $properties = Property::all();
+        return view(Template::route() .'admin.catalog.product.create', compact('categories', 'brands', 'properties'));
     }
 
     /**
@@ -85,7 +87,8 @@ class ProductController extends Controller
     {
         $categories = Category::all();
         $brands = Brand::all();
-        return view(Template::route() . 'admin.catalog.product.edit', compact('product', 'categories', 'brands'));
+        $properties = Property::all();
+        return view(Template::route() . 'admin.catalog.product.edit', compact('product', 'categories', 'brands', 'properties'));
     }
 
     /**
@@ -99,6 +102,7 @@ class ProductController extends Controller
     {
         $fields = $request->all();
         $fields['image'] = $this->imageHandler->upload($request->image, $product);
+        $product->properties()->sync($request->property_id);
         $product->update($fields);
         return redirect()
             ->route('admin.catalog.product.show', compact('product'))

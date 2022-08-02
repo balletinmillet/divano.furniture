@@ -43,6 +43,23 @@
     </div>
 </div>
 <div class="item form-group">
+    <label class="col-form-label col-md-3 col-sm-3 label-align" for="property_id[]">{{__('admin/common.form.productProperty')}}</label>
+    <div class="col-md-6 col-sm-6 ">
+        <select class="form-control" name="property_id[]" multiple>
+            @foreach($properties as $property)
+                <option value="{{ $property->id }}"
+                        @isset($product)
+                        @if($product->properties->contains($property->id))
+                        selected
+                    @endif
+                    @endisset
+                >{{ $property->name }}</option>
+            @endforeach
+        </select>
+    </div>
+</div>
+
+<div class="item form-group">
     <label class="col-form-label col-md-3 col-sm-3 label-align" for="description">{{__('admin/common.form.description')}}</label>
     <div class="col-md-6 col-sm-6 ">
         <textarea class="form-control" name="description" rows="3">{{isset($product) ? $product->description : ''}}</textarea>

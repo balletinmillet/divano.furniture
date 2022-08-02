@@ -10,11 +10,12 @@
                     <h6 style="display: inline-block; margin-top: 10px;">
                     @if(!is_null($product->category))
                         <a href="{{ route('admin.catalog.category.show', $product->category) }}">{{$product->category->name}} </a>
-                            &nbsp;<i class="fa fa-caret-right"></i> &nbsp;
-                            <span> {{$product->name}}</span>
-                    @else
-                        {{$product->name}}
+                        &nbsp;<i class="fa fa-caret-right"></i>
                     @endif
+                        <a href="{{ route('admin.catalog.product.show', $product) }}">{{$product->name}} </a>
+                        &nbsp;<i class="fa fa-caret-right"></i>
+                        <span> {{$sku->id}}</span>
+
                     </h6>
                     <ul class="nav navbar-right panel_toolbox">
                     </ul>
@@ -29,43 +30,51 @@
                     </div>
 
                     <div class="col-md-5 col-sm-5 " style="border:0px solid #e5e5e5;">
-                        <h3 class="prod_title">{{$product->name }}</h3>
+                        <h3 class="prod_title">{{__('admin/catalog.sku.show.titlePart1')}} {{$sku->id}}</h3>
                         <div class="">
                             <div class="table-responsive">
                                 <table class="table properties-table">
                                     <tbody>
                                     <tr>
-                                        <th style="width:50%">{{__('admin/common.form.code')}}</th>
-                                        <td>{{$product->code}}</td>
+                                        <th style="width:50%">{{__('admin/common.form.id')}}</th>
+                                        <td>{{$sku->id}}</td>
                                     </tr>
                                     <tr>
-                                        <th style="width:50%">{{__('admin/common.form.productCategory')}}</th>
-                                        <td>{{$product->category->name}}</td>
+                                        <th style="width:50%">{{__('admin/common.form.product')}}</th>
+                                        <td> <a href="{{ route('admin.catalog.product.show', $product) }}" target="_blank">{{$product->name}} </a></td>
                                     </tr>
                                     <tr>
-                                        <th style="width:50%">{{__('admin/common.form.productBrand')}}</th>
-                                        <td>{{$product->brand->name}}</td>
+                                        <th style="width:50%">{{__('admin/common.form.price')}}</th>
+                                        <td>{{$sku->price}}</td>
                                     </tr>
+                                    <tr>
+                                        <th style="width:50%">{{__('admin/common.form.count')}}</th>
+                                        <td>{{$sku->count}}</td>
+                                    </tr>
+                                    @foreach ($product->properties as $property)
+                                        <tr>
+                                            <th style="width:50%">{{ $property->name }}</th>
+                                        @foreach($property->propertyOptions as $propertyOption)
+                                            @isset($sku)
+                                                @if($sku->propertyOptions->contains($propertyOption->id))
+                                                    <td>{{$propertyOption->name}}</td>
+                                                @endif
+                                            @endisset
+                                        @endforeach
+                                        </tr>
+                                    @endforeach
                                     </tbody>
                                 </table>
                             </div>
                         </div>
-
-                        <p>{{$product->description }}</p>
                         <br>
                         <div>
-                            <a href="{{ route('admin.catalog.sku.index', $product) }}" class="btn btn-success btn-xs p-2 mb-2" style="width: 100%;">
-                                <i class="fa fa-share-alt-square"></i>
-                                {{__('admin/common.button.fullSkus')}}
-                            </a>
-                        </div>
-                        <div>
-                            <a href="{{ route('admin.catalog.product.edit', $product) }}" class="btn btn-info btn-xs p-2 mb-2" style="width: 100%;">
+                            <a href="{{ route('admin.catalog.sku.edit', [$product, $sku]) }}" class="btn btn-info btn-xs p-2 mb-2" style="width: 100%;">
                                 <i class="fa fa-pencil"></i> {{__('admin/common.button.edit')}}
                             </a>
                         </div>
                         <div>
-                            <form action="{{ route('admin.catalog.product.destroy', $product) }}"
+                            <form action="{{ route('admin.catalog.sku.destroy', [$product, $sku]) }}"
                                   method="post" onsubmit="return confirm('{{__('admin/common.question.productDelete')}}')">
                                 @csrf
                                 @method('DELETE')

@@ -24,6 +24,16 @@ class Product extends Model
         return $this->belongsTo(Brand::class);
     }
 
+    public function skus()
+    {
+        return $this->hasMany(Sku::class);
+    }
+
+    public function properties()
+    {
+        return $this->belongsToMany(Property::class, 'property_product')->withTimestamps();
+    }
+
     public function getSourceImageAttribute(): string
     {
         return $this->getCatalogImage('source');

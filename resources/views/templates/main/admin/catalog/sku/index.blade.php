@@ -1,5 +1,5 @@
 @extends(config('view.template.route') . "layouts.admin")
-@section('title', "Товары каталога")
+@section('title', "Тороговые предложения товара " . $product->name)
 @section('content')
 <div class="">
     <div class="page-title">
@@ -24,52 +24,46 @@
         <div class="col-md-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>{{__('admin/catalog.product.index.title')}}</h2>
+                    <h2>{{__('admin/catalog.sku.index.titleExtended')}}
+                        <a href="{{route('admin.catalog.product.show', $product)}}" target="_blank">"{{$product->name}}"</a>
+                    </h2>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
 
-                    <p>{{__('admin/catalog.product.index.description')}}</p>
+                    <p>{{__('admin/catalog.sku.index.description')}}</p>
 
                     <!-- start project list -->
                     <table class="table table-striped projects">
                         <thead>
                         <tr>
-                            <th style="width: 5%">{{__('admin/catalog.product.index.table.id')}}</th>
-                            <th style="width: 17%">{{__('admin/catalog.product.index.table.name')}}</th>
-                            <th style="width: 17%">{{__('admin/catalog.product.index.table.code')}}</th>
-                            <th style="width: 17%">{{__('admin/catalog.product.index.table.category')}}</th>
-                            <th style="width: 40%">{{__('admin/catalog.product.index.table.actions')}}</th>
+                            <th style="width: 5%">{{__('admin/catalog.sku.index.table.id')}}</th>
+                            <th style="width: 25%">{{__('admin/catalog.sku.index.table.price')}}</th>
+                            <th style="width: 25%">{{__('admin/catalog.sku.index.table.count')}}</th>
+                            <th style="width: 35%">{{__('admin/catalog.sku.index.table.actions')}}</th>
                         </tr>
                         </thead>
                         <tbody>
-                            @foreach($products as $product)
+                            @foreach($skus as $sku)
                                 <tr>
-                                    <td>{{$product->id}}</td>
+                                    <td>{{$sku->id}}</td>
                                     <td>
-                                        <a>{{$product->name}}</a>
+                                        <a>{{$sku->price}}</a>
                                     </td>
                                     <td>
-                                        <a>{{$product->code}}</a>
+                                        <a>{{$sku->count}}</a>
                                     </td>
                                     <td>
-                                        <a href="{{route('admin.catalog.category.show', $product->category)}}">{{$product->category->name}}</a>
-                                    </td>
-                                    <td>
-                                        <a href="{{ route('admin.catalog.product.show', $product) }}" class="btn btn-primary btn-xs">
+                                        <a href="{{ route('admin.catalog.sku.show', [$product, $sku]) }}" class="btn btn-primary btn-xs">
                                             <i class="fa fa-folder"></i>
                                             {{__('admin/common.button.open')}}
                                         </a>
-                                        <a href="{{ route('admin.catalog.sku.index', $product) }}" class="btn btn btn-success btn-xs">
-                                            <i class="fa fa-share-alt-square"></i>
-                                            {{__('admin/common.button.sku')}}
-                                        </a>
-                                        <a href="{{ route('admin.catalog.product.edit', $product) }}" class="btn btn-info btn-xs">
+                                        <a href="{{ route('admin.catalog.sku.edit', [$product, $sku]) }}" class="btn btn-info btn-xs">
                                             <i class="fa fa-pencil"></i>
                                             {{__('admin/common.button.edit')}}
                                         </a>
-                                        <form action="{{ route('admin.catalog.product.destroy', $product) }}" style="display: inline"
-                                              method="post" onsubmit="return confirm('{{__('admin/common.question.productDelete')}}')">
+                                        <form action="{{ route('admin.catalog.sku.destroy', [$product, $sku]) }}" style="display: inline"
+                                              method="post" onsubmit="return confirm('{{__('admin/common.question.skuDelete')}}')">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger btn-xs">
@@ -85,8 +79,8 @@
                     <!-- end project list -->
                 </div>
                 <div class="x_content">
-                    <a href="{{ route('admin.catalog.product.create') }}"  class="btn btn-primary btn-lg">
-                        {{__('admin/catalog.product.index.table.button.create')}}
+                    <a href="{{ route('admin.catalog.sku.create', $product) }}" class="btn btn-primary btn-lg">
+                        {{__('admin/catalog.sku.index.table.button.create')}}
                     </a>
                 </div>
             </div>
