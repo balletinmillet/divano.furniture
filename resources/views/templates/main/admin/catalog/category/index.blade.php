@@ -81,6 +81,9 @@
                         {{__('admin/catalog.category.index.table.button.create')}}
                     </a>
                 </div>
+                <div class="x_content">
+                    {{ $categories->links() }}
+                </div>
             </div>
         </div>
     </div>

@@ -31,7 +31,7 @@ class BrandController extends Controller
      */
     public function index()
     {
-        $brands = Brand::all();
+        $brands = Brand::paginate(Template::paginationItemsCount('brand'));
         return view(Template::route() . 'admin.catalog.brand.index', compact('brands'));
     }
 

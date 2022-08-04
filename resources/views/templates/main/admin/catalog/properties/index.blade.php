@@ -85,6 +85,9 @@
                         {{__('admin/catalog.property.index.table.button.create')}}
                     </a>
                 </div>
+                <div class="x_content">
+                    {{ $properties->links() }}
+                </div>
             </div>
         </div>
     </div>

@@ -14,4 +14,8 @@ class Template
         return config('view.template.path');
     }
 
+    public static function paginationItemsCount($itemType)
+    {
+        return config('view.pagination.' . $itemType);
+    }
 }

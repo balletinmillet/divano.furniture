@@ -7,6 +7,8 @@ return [
         'category_id' => 'Категория',
         'brand_id' => 'Бренд',
         'description' => 'Описание',
+        'price' => 'Цена',
+        'count' => 'Количество',
         'image' => 'Изображение',
         'required' => 'Поле :attribute обязательно для ввода',
         'max' => 'Максимальное количество символов в поле :attribute - :max',

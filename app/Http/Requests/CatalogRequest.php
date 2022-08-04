@@ -7,7 +7,7 @@ use Illuminate\Foundation\Http\FormRequest;
 class CatalogRequest extends FormRequest
 {
     protected $entity = [];
-    protected $fieldCodes = ["name", "code", "parent_id", "category_id", "brand_id"];
+    protected $fieldCodes = ["name", "code", "parent_id", "category_id", "brand_id", "price", "count"];
 
     /**
      * Determine if the user is authorized to make this request.

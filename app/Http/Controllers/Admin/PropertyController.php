@@ -23,7 +23,7 @@ class PropertyController extends Controller
      */
     public function index()
     {
-        $properties = Property::paginate(10);
+        $properties = Property::paginate(Template::paginationItemsCount('property'));
         return view(Template::route() . 'admin.catalog.properties.index', compact('properties'));
     }
 

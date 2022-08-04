@@ -30,7 +30,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
+        $categories = Category::paginate(Template::paginationItemsCount('category'));
         return view(Template::route() . 'admin.catalog.category.index', compact('categories'));
     }
 

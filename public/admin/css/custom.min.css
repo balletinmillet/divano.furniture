@@ -20,3 +20,6 @@
 .properties-table tr:first-child td {
     border-top: none;
 }
+ul.pagination {
+    justify-content: center;
+}

@@ -14,7 +14,7 @@ class ProductFactory extends Factory
      */
     public function definition()
     {
-        $name = $this->faker->realText(rand(10, 20));
+        $name = $this->faker->word();
         return [
             'category_id' => rand(3, 6),
             'brand_id' => rand(1, 2),

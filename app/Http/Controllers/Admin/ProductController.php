@@ -33,7 +33,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::paginate(5);
+        $products = Product::paginate(Template::paginationItemsCount('product'));
         return view(Template::route() . 'admin.catalog.product.index', compact('products'));
     }
 

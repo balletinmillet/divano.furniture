@@ -14,7 +14,9 @@ class SkuFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'product_id' => rand(1, 12),
+            'count' => rand(0, 15),
+            'price' => rand(1000, 50000),
         ];
     }
 }

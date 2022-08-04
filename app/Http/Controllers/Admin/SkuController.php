@@ -24,7 +24,7 @@ class SkuController extends Controller
      */
     public function index(Product $product)
     {
-        $skus = $product->skus()->paginate(8);
+        $skus = $product->skus()->paginate(Template::paginationItemsCount('sku'));
         return view(Template::route() . 'admin.catalog.sku.index', compact('skus', 'product'));
     }
 

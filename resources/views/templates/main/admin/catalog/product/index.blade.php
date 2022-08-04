@@ -89,6 +89,9 @@
                         {{__('admin/catalog.product.index.table.button.create')}}
                     </a>
                 </div>
+                <div class="x_content">
+                    {{ $products->links() }}
+                </div>
             </div>
         </div>
     </div>

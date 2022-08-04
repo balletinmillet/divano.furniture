@@ -83,6 +83,9 @@
                         {{__('admin/catalog.sku.index.table.button.create')}}
                     </a>
                 </div>
+                <div class="x_content">
+                    {{ $skus->links() }}
+                </div>
             </div>
         </div>
     </div>

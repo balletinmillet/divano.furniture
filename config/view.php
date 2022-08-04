@@ -21,6 +21,14 @@ return [
         'path' => '/templates/' . config('app.template') . '/',
         'route' => 'templates.' . config('app.template') . '.',
     ],
+    'pagination' => [
+        'category' => 4,
+        'brand' => 6,
+        'product' => 6,
+        'sku' => 6,
+        'property' => 6,
+        'propertyOption' => 6,
+    ],
 
     /*
     |--------------------------------------------------------------------------

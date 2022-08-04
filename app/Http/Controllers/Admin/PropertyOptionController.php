@@ -25,7 +25,7 @@ class PropertyOptionController extends Controller
     public function index(Property $property)
     {
         $propertyQuery = PropertyOption::with('property')->where('property_id', $property->id);
-        $propertyOptions = $propertyQuery->paginate(8);
+        $propertyOptions = $propertyQuery->paginate(Template::paginationItemsCount('propertyOption'));
         return view(Template::route() . 'admin.catalog.property_options.index', compact('propertyOptions', 'property'));
     }
 

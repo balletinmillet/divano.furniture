@@ -81,6 +81,9 @@
                         {{__('admin/catalog.brand.index.table.button.create')}}
                     </a>
                 </div>
+                <div class="x_content">
+                    {{ $brands->links() }}
+                </div>
             </div>
         </div>
     </div>

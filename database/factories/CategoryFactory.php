@@ -14,7 +14,7 @@ class CategoryFactory extends Factory
      */
     public function definition()
     {
-        $name = $this->faker->realText(rand(10, 20));
+        $name = $this->faker->word();
         return [
             'name' => $name,
             'code' => Helper::translitString($name),
