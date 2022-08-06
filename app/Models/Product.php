@@ -56,4 +56,32 @@ class Product extends Model
 
         return Storage::disk('public')->url($imagePath);
     }
+
+    public function mainSku()
+    {
+        if($this->skus->count() > 0)
+            return $this->skus->first();
+        return $this;
+    }
+
+    public function skusProperties()
+    {
+        $skusProperties = [];
+        foreach ($this->skus as $index => $sku)
+        {
+            foreach ($sku->propertyOptions as $propertyOption)
+            {
+                if(!array_key_exists($propertyOption->property->name, $skusProperties))
+                {
+                    $skusProperties[$propertyOption->property->code][$propertyOption->name][] = $sku->id;
+                    continue;
+                }
+
+                if(!in_array($propertyOption->name, $skusProperties[$propertyOption->property->name]))
+                    $skusProperties[$propertyOption->property->code][$propertyOption->name][] = $sku->id;
+            }
+        }
+
+        return $skusProperties;
+    }
 }

@@ -23,6 +23,7 @@ Route::group([
     Route::get('/', [CatalogController::class, 'index'])->name('index');
     Route::get('{category}', [CatalogController::class, 'category'])->name('category');
     Route::get('{category}/{product}', [CatalogController::class, 'product'])->name('product');
+    Route::get('{category}/{product}/{sku}', [CatalogController::class, 'sku'])->name('sku');
 });
 
 /** Панель управления магазином для администратора сайта **/

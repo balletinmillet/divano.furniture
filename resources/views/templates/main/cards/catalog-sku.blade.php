@@ -2,8 +2,8 @@
     <article>
         <div class="info">
         <span class="add-favorite">
-            <a href="javascript:void(0);" data-title="{{$product->name}}"
-               data-title-added="{{$product->name}}">
+            <a href="javascript:void(0);" data-title="Add to favorites"
+               data-title-added="Added to favorites list">
                 <i class="icon icon-heart"></i>
             </a>
         </span>
@@ -19,18 +19,18 @@
         <div class="figure-grid">
             <span class="badge badge-warning">-20%</span>
             <div class="image">
-                <a href="{{route('catalog.product', [$category->code, $product->code])}}">
-                    <img src="{{Storage::disk('public')->url($product->image ?? 'default/product.big.png')}}" alt=""/>
+                <a href="{{route('catalog.sku', [$category->code, $product->code, $sku->id])}}">
+                    <img src="{{Storage::disk('public')->url($sku->product->image ?? 'default/product.big.png')}}" alt=""/>
                 </a>
             </div>
             <div class="text">
                 <h2 class="title h4">
-                    <a href="{{route('catalog.product', [$category->code, $product->code])}}">{{$product->name}}</a>
+                    <a href="{{route('catalog.sku', [$category->code, $product->code, $sku->id])}}">{{$sku->product->name}}</a>
                 </h2>
-                <sub>{{$product->price}}</sub>
-                <sup>{{$product->price}}</sup>
+                <sub>{{$sku->price}}</sub>
+                <sup>{{$sku->price}}</sup>
                 <span class="description clearfix">
-                    {{$product->description}}
+                    {{$sku->product->description}}
                 </span>
             </div>
         </div>

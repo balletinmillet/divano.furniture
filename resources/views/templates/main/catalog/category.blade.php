@@ -479,7 +479,11 @@
 
                 <div class="row">
                     @foreach($category->products as $product)
-                        @include(config('view.template.route') . 'cards.catalog-product', compact('product'))
+                        @if($product->skus->count() > 0)
+                            @include(config('view.template.route') . 'cards.catalog-sku', ['sku' => $product->mainSku(), 'sku' => $product->mainSku()])
+                        @else
+                            @include(config('view.template.route') . 'cards.catalog-product', compact('product'))
+                        @endif
                     @endforeach
                 </div>
 

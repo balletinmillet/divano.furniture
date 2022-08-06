@@ -1,5 +1,5 @@
 @extends(config('view.template.route') . "layouts.site")
-@section('title', $product->name)
+@section('title', $sku->product->name)
 @section('content')
 <section class="product pt-0">
 
@@ -10,9 +10,9 @@
                 <li class="breadcrumb-item"><a href="#">Library</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Data</li>
             </ol>
-            <h2 class="title">{{$product->name}}</h2>
+            <h2 class="title">{{$sku->product->name}}</h2>
             <div class="text">
-                <p>{{$product->description}}</p>
+                <p>{{$sku->product->description}}</p>
             </div>
         </div>
     </header>
@@ -30,8 +30,8 @@
 
                             <div class="price">
                                         <span class="h3">
-                                            {{$product->price}}
-                                            <small>{{$product->price}}</small>
+                                            {{$sku->price}}
+                                            <small>{{$sku->price}}</small>
                                         </span>
                             </div>
 
@@ -41,7 +41,7 @@
 
                             <div class="info-box">
                                 <span><strong>Maifacturer</strong></span>
-                                <span>{{$product->brand->name}}</span>
+                                <span>{{$sku->product->brand->name}}</span>
                             </div>
 
                             <!--info-box-->
@@ -53,6 +53,65 @@
 
                             <hr />
 
+
+                            <!--info-box-->
+
+{{--                            @isset($skusPropertyStructure['color'])
+                            <div class="info-box">
+                                <span><strong>Available Colors</strong></span>
+                                <div class="product-colors clearfix">
+                                    @foreach ($skusPropertyStructure['color'] as $color => $status)
+                                        <span class="color-btn color-btn {{$status}}" data-color="{{$color}}"></span>
+                                    @endforeach
+                                </div>
+                            </div>
+                            @endisset
+
+                            <hr />
+
+                            <!--info-box-->
+
+                            @isset($skusPropertyStructure['size'])
+                                <div class="info-box">
+                                    <span><strong>Choose size</strong></span>
+                                    <div class="product-colors clearfix">
+                                        @foreach ($skusPropertyStructure['size'] as $size => $status)
+                                            <span class="color-btn color-btn-biege {{$status}}">{{$size}}</span>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            <hr />
+                            @endisset--}}
+
+
+                            @isset($skusProperties['color'])
+                                <div class="info-box">
+                                    <span><strong>Available Colors</strong></span>
+                                    <div class="product-colors clearfix">
+                                        @foreach ($skusProperties['color'] as $color => $skusId)
+                                            <a class="color-btn color-btn @if($skuPropertyOptions['color'] === $color) checked @endif"
+                                                href="{{route('catalog.sku', [$sku->product->category->code, $sku->product->code, $skusId])}}"
+                                                data-color="{{$color}}">
+                                            </a>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            @endisset
+                            <hr />
+                            @isset($skusProperties['size'])
+                                <div class="info-box">
+                                    <span><strong>Choose size</strong></span>
+                                    <div class="product-colors clearfix">
+                                        @foreach ($skusProperties['size'] as $size => $skusId)
+                                            <a class="color-btn color-btn-biege @if($skuPropertyOptions['size'] === $size) checked @endif"
+                                                href="{{route('catalog.sku', [$sku->product->category->code, $sku->product->code, $skusId])}}">
+                                                {{$size}}
+                                            </a>
+                                        @endforeach
+                                    </div>
+                                </div>
+                                <hr />
+                            @endisset
 
                             <div class="info-box">
                                         <span>
@@ -111,8 +170,8 @@
                     <!--product gallery-->
 
                     <div class="owl-product-gallery owl-carousel owl-theme open-popup-gallery">
-                        <a href="{{Storage::disk('public')->url($product->image ?? 'default/product.big.png')}}">
-                            <img src="{{Storage::disk('public')->url($product->image ?? 'default/product.big.png')}}" alt="" />
+                        <a href="{{Storage::disk('public')->url($sku->product->image ?? 'default/product.big.png')}}">
+                            <img src="{{Storage::disk('public')->url($sku->product->image ?? 'default/product.big.png')}}" alt="" />
                         </a>
 {{--                        <a href="assets/images/product-9.jpg">
                             <img src="assets/images/product-9.jpg" alt="" />

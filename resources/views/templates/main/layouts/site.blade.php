@@ -28,7 +28,8 @@
     <link rel="stylesheet" media="all" href="/css/magnific-popup.css" />
     <link rel="stylesheet" media="all" href="/css/owl.carousel.css" />
     <link rel="stylesheet" media="all" href="/css/theme.css" />
-
+    <!-- Custom Theme Style -->
+    <link href="/css/colors.css" rel="stylesheet">
     <!--Google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" rel="stylesheet">

@@ -1,0 +1,19 @@
+a[data-color="Красный"]{
+    background-color: #ef6e6e;
+}
+
+a[data-color="Синий"]{
+    background-color: #6a8abb;
+}
+
+a[data-color="Зеленый"]{
+    background-color: #46b147;
+}
+
+a[data-color="Серый"]{
+    background-color: #6f6f6f;
+}
+
+a[data-color="Бежевый"]{
+    background-color: #ece3b4;
+}
